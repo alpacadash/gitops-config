@@ -10,8 +10,8 @@ labels:
   - pairs:
       app: gitops-dev
       env: dev
-    includesSelectors: true
-    includesTemplates: true
+    includeSelectors: true
+    includeTemplates: true
 images:
   - name: gitops-app
     newName: alpacadash/gitops-app
