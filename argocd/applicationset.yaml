@@ -17,7 +17,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/lpacadash/gitops-config
+        repoURL: https://github.com/alpacadash/gitops-config
         targetRevision: main
         path: "{{path}}"
       destination:
