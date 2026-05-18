@@ -15,7 +15,7 @@ spec:
     spec:
       project: gitops-project
       source:
-        repoURL: https://github.com/alpacadas/gitops-config
+        repoURL: https://github.com/alpacadash/gitops-config
         targetRevision: main
         path: apps/gitops-app/overlays/{{env}}
       destination:
