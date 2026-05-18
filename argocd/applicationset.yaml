@@ -3,27 +3,34 @@ kind: ApplicationSet
 metadata:
   name: gitops-apps
   namespace: argocd
+
 spec:
   generators:
     - list:
-      elements:
-        - env: dev
-        - env: prod
+        elements:
+          - env: dev
+          - env: prod
+
   template:
     metadata:
       name: "gitops-app-{{env}}"
+
     spec:
       project: gitops-projects
+
       source:
         repoURL: https://github.com/alpacadash/gitops-config
         targetRevision: main
         path: apps/gitops-app/overlays/{{env}}
+
       destination:
         server: https://kubernetes.default.svc
         namespace: gitops-app-{{env}}
+
       syncPolicy:
         automated:
           prune: true
           selfHeal: true
+
         syncOptions:
           - CreateNamespace=true
