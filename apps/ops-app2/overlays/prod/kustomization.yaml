@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
   - ../../base
 
-namespace: ops-app2-dev
+namespace: ops-app2-prod
 
 images:
   - name: ops-app2
