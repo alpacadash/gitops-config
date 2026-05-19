@@ -4,18 +4,18 @@ kind: Kustomization
 resources:
   - ../../base
 
-namespace: ops-app2-$env
+namespace: ops-app2-dev
 
 images:
   - name: ops-app2
-    newName: nginx
-    newTag: "$TAG"
+    newName: nginx # 단계 검증용. [devops] 02에서 Spring Boot로 교체
+    newTag: "1.27-alpine"
 
 patches:
   - patch: |-
       - op: replace
         path: /spec/replicas
-        value: $REPLICAS
+        value: 1
     target:
       kind: Deployment
       name: ops-app2
@@ -24,4 +24,5 @@ configMapGenerator:
   - name: ops-app2-config
     behavior: merge
     literals:
-      - PROFILE=$env
+      - PROFILE=dev
+      - OPS_APP2_URL=http://ops-app2.ops-app2-dev.svc.cluster.local:8081
