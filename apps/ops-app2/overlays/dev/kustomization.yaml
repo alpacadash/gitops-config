@@ -9,7 +9,7 @@ namespace: ops-app2-dev
 images:
 - name: ops-app2
   newName: alpacadash/ops-app2
-  newTag: sha-519f0c3
+  newTag: sha-1b244f9
 
 patches:
 - patch: |-
